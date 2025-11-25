@@ -1,0 +1,39 @@
+name: Deploy Vite Frontend
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Use Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+
+      - name: Install dependencies
+        run: npm install --prefix RRTS_PROJECT/frontendfinal/frontend
+
+      - name: Build project
+        run: npm run build --prefix RRTS_PROJECT/frontendfinal/frontend
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v2
+        with:
+          path: RRTS_PROJECT/frontendfinal/frontend/dist
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+
+    steps:
+      - uses: actions/deploy-pages@v2

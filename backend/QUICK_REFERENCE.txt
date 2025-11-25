@@ -1,0 +1,74 @@
+═══════════════════════════════════════════════════════════════
+   RRTS - QUICK REFERENCE CARD
+═══════════════════════════════════════════════════════════════
+
+📍 PROJECT LOCATION:
+   /home/rguktvalley/Documents/rrts_final/
+
+🚀 START SERVERS:
+
+   Terminal 1 - Backend:
+   $ cd ~/Documents/rrts_final/backend
+   $ npm run dev
+   → Server: http://localhost:5000
+
+   Terminal 2 - Frontend:
+   $ cd ~/Documents/rrts_final/frontend  
+   $ npm run dev
+   → App: http://localhost:3000
+
+📁 PROJECT STRUCTURE:
+   
+   rrts_final/
+   ├── backend/          Node.js API (Port 5000)
+   ├── frontend/         React App (Port 3000)
+   └── *.md             Documentation files
+
+🔑 DEFAULT CONFIGURATION:
+
+   MongoDB:    mongodb://localhost:27017/rrts
+   Backend:    http://localhost:5000
+   Frontend:   http://localhost:3000
+   JWT Secret: (in backend/.env)
+
+👥 USER ROLES:
+
+   1. Resident       → Submit complaints
+   2. Clerk          → Enter complaints  
+   3. Supervisor     → Assess & schedule
+   4. Administrator  → Manage resources
+   5. Mayor          → View analytics
+
+📚 DOCUMENTATION:
+
+   • START_HERE.md           ← Read this first!
+   • README.md               ← Project overview
+   • SETUP_GUIDE.md          ← Installation steps
+   • API_DOCUMENTATION.md    ← API reference
+   • PROJECT_SUMMARY.md      ← Feature list
+
+🛠️ USEFUL COMMANDS:
+
+   Check MongoDB:
+   $ systemctl status mongod
+
+   Stop servers:
+   Ctrl + C (in each terminal)
+
+   Reinstall dependencies:
+   $ cd backend && npm install
+   $ cd frontend && npm install
+
+   View logs:
+   Check terminal output where servers are running
+
+📊 PROJECT STATS:
+
+   Total Size:    ~210 MB
+   Files:         10,852
+   Backend Deps:  161 packages
+   Frontend Deps: 228 packages
+
+═══════════════════════════════════════════════════════════════
+   For detailed help, open START_HERE.md
+═══════════════════════════════════════════════════════════════
