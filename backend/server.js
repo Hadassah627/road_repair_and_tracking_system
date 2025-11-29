@@ -10,9 +10,33 @@ connectDB();
 
 const app = express();
 
-// CORS Configuration
+// CORS Configuration - Allow multiple origins including Vercel preview deployments
+const allowedOrigins = [
+  process.env.FRONTEND_URL,
+  'https://road-repair-and-tracking-system-vv8.vercel.app',
+  'https://road-repair-and-tracking-system-vv8s.vercel.app',
+  /https:\/\/road-repair-and-tracking-system-vv8s-.*\.vercel\.app$/, // Vercel preview deployments
+];
+
 const corsOptions = {
-  origin: process.env.FRONTEND_URL || 'https://road-repair-and-tracking-system-vv8.vercel.app',
+  origin: function (origin, callback) {
+    // Allow requests with no origin (mobile apps, Postman, etc.)
+    if (!origin) return callback(null, true);
+    
+    // Check if origin is in allowed list or matches regex pattern
+    const isAllowed = allowedOrigins.some(allowedOrigin => {
+      if (allowedOrigin instanceof RegExp) {
+        return allowedOrigin.test(origin);
+      }
+      return allowedOrigin === origin;
+    });
+    
+    if (isAllowed) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
   credentials: true,
   optionsSuccessStatus: 200
 };
