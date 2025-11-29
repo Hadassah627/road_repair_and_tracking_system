@@ -15,7 +15,8 @@ const allowedOrigins = [
   process.env.FRONTEND_URL,
   'https://road-repair-and-tracking-system-vv8.vercel.app',
   'https://road-repair-and-tracking-system-vv8s.vercel.app',
-  /https:\/\/road-repair-and-tracking-system-vv8s-.*\.vercel\.app$/, // Vercel preview deployments
+  'https://road-repair-and-tracking-system-qyo.vercel.app',
+  /https:\/\/road-repair-and-tracking-system-.*\.vercel\.app$/, // All Vercel deployments
 ];
 
 const corsOptions = {
